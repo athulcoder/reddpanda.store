@@ -1,0 +1,31 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block link%}
+    <link rel="stylesheet" href="{%static 'app/css/login.css'%}">
+{% endblock link%}
+{% block title %}Sign Up{% endblock title %}
+{% block main-content %}
+<div class="lcontainer">
+    <div class="box section-p1">
+
+    <h2>Create Account</h2>
+
+    <div class="col">
+        <form action="post">
+
+            <input type="text" placeholder="Full Name">
+            <input type="email" placeholder="Email">
+            <input type="password" placeholder="Password">
+
+            <button class="normal">Sign up</button>
+
+            <div class="lfooter">
+                <a href="#">Have an account? Login</a>
+            </div>
+        </form>
+        
+    </div>
+</div>
+</div>
+
+{% endblock main-content %}

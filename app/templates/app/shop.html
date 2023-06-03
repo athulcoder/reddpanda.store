@@ -1,0 +1,188 @@
+{% extends 'app/base.html' %}
+
+
+{% load static %}
+{% block title %}Shop {% endblock title %}
+{% block main-content %}
+    <section id="page-header">
+      <h2>#stayhome</h2>
+      <p>Save more with coupons & up to 70% off!</p>
+
+    </section>
+
+    
+
+    <section id="product1" class="section-p1">
+      <h2>Shop</h2>
+      <p>Summer Collection New Modern Design</p>
+
+      <div class="pro-container">
+        <div class="pro" onclick="window.location.href=`{% url 'product-detail' %}`">
+          <img src="{% static 'app/img/products/p3.jpg' %}" alt="" />
+          <div class="des">
+            <span>adidas</span>
+
+            <h5>Cartoon Astronat T-shirt</h5>
+
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>$78</h4>
+          </div>
+
+          <a href="#"> <i class="fa-solid fa-cart-shopping cart"></i></a>
+        </div>
+
+        <div class="pro">
+          <img src="{% static 'app/img/products/p4.jpg' %}" alt="" />
+          <div class="des">
+            <span>adidas</span>
+
+            <h5>Cartoon Astronat T-shirt</h5>
+
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>$78</h4>
+          </div>
+
+          <a href="#"> <i class="fa-solid fa-cart-shopping cart"></i></a>
+        </div>
+
+        <div class="pro">
+          <img src="{% static 'app/img/products/p4.jpg' %}" alt="" />
+          <div class="des">
+            <span>adidas</span>
+
+            <h5>Cartoon Astronat T-shirt</h5>
+
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>$78</h4>
+          </div>
+
+          <a href="#"> <i class="fa-solid fa-cart-shopping cart"></i></a>
+        </div>
+
+        <div class="pro">
+          <img src="{% static 'app/img/products/p5.webp' %}" alt="" />
+          <div class="des">
+            <span>adidas</span>
+
+            <h5>Cartoon Astronat T-shirt</h5>
+
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>$78</h4>
+          </div>
+
+          <a href="#"> <i class="fa-solid fa-cart-shopping cart"></i></a>
+        </div>
+
+        <div class="pro">
+          <img src="{% static 'app/img/products/p6.jpg' %}" alt="" />
+          <div class="des">
+            <span>adidas</span>
+
+            <h5>Cartoon Astronat T-shirt</h5>
+
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>$78</h4>
+          </div>
+
+          <a href="#"> <i class="fa-solid fa-cart-shopping cart"></i></a>
+        </div>
+
+        <div class="pro">
+          <img src="{% static 'app/img/products/p3.jpg' %}" alt="" />
+          <div class="des">
+            <span>adidas</span>
+
+            <h5>Cartoon Astronat T-shirt</h5>
+
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>$78</h4>
+          </div>
+
+          <a href="#"> <i class="fa-solid fa-cart-shopping cart"></i></a>
+        </div>
+
+        <div class="pro">
+          <img src="{% static 'app/img/products/p1.jpg' %}" alt="" />
+          <div class="des">
+            <span>adidas</span>
+
+            <h5>Cartoon Astronat T-shirt</h5>
+
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>$78</h4>
+          </div>
+
+          <a href="#"> <i class="fa-solid fa-cart-shopping cart"></i></a>
+        </div>
+
+        <div class="pro">
+          <img src="{% static 'app/img/products/p2.jpg' %}" alt="" />
+          <div class="des">
+            <span>adidas</span>
+
+            <h5>Cartoon Astronat T-shirt</h5>
+
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>$78</h4>
+          </div>
+
+          <a href="#"> <i class="fa-solid fa-cart-shopping cart"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <section id="pagination" class="section-p1">
+        <a href="#">1</a>
+        <a href="#">2</a>
+        <a href="#"><i class="fa-solid fa-long-arrow-alt-right"></i></a>
+    </section>
+    
+    {% endblock main-content %}

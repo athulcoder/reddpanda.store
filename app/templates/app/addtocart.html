@@ -1,0 +1,108 @@
+{% extends 'app/base.html' %} 
+{% load static %} 
+{% block title %}Cart{% endblock title %} 
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'app/css/cart.css'%}" />
+{% endblock link %} 
+{% block main-content %}
+
+<section id="kcontainer" class="section-p1">
+  <h1>Shopping Cart</h1>
+
+  <div class="m-box ">
+    <div class="cart-sec ">
+      <h3>Cart</h3>
+      <div class="pro-box">
+        <img src="{% static 'app/img/products/p3.jpg' %}" alt="" />
+        <div class="details">
+          <h4>Product 1</h4>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente
+            ex laudantium sit modi minima animi iste? Quaerat ad repellendus
+            at!F Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta
+            non asperiores, mollitia optio porro nisi amet? Fugiat similique
+            voluptatibus rerum?
+          </p>
+
+          <input type="number" >
+
+          <div class="kfoot">
+            <button class="normal">Remove Item</button>
+            <h4> Rs. 1184.00</h4>
+          </div>
+        </div>
+
+        
+      </div>
+
+      <div class="pro-box">
+        <img src="{% static 'app/img/products/p6.jpg' %}" alt="" />
+        <div class="details">
+          <h4>Product 2</h4>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente
+            ex laudantium sit modi minima animi iste? Quaerat ad repellendus
+            at!F Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta
+            non asperiores, mollitia optio porro nisi amet? Fugiat similique
+            voluptatibus rerum?
+          </p>
+
+          <input type="number" >
+
+          <div class="kfoot">
+            <button class="normal">Remove Item</button>
+            <h4> Rs. 1184.00</h4>
+          </div>
+        </div>
+
+        
+      </div>
+
+      <div class="pro-box">
+        <img src="{% static 'app/img/products/p4.jpg' %}" alt="" />
+        <div class="details">
+          <h4>Product 3</h4>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente
+            ex laudantium sit modi minima animi iste? Quaerat ad repellendus
+            at!F Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta
+            non asperiores, mollitia optio porro nisi amet? Fugiat similique
+            voluptatibus rerum?
+          </p>
+
+          <input type="number" >
+
+          <div class="kfoot">
+            <button class="normal">Remove Item</button>
+            <h4> Rs. 1184.00</h4>
+          </div>
+        </div>
+
+        
+      </div>
+      
+    </div>
+
+  <div class="amount-sec">
+    <h3>The Total Amount of </h3>
+    <div class="charge-box">
+      <p>Amount</p>
+      <p>Rs. 430.00</p>
+    </div>
+    <div class="charge-box">
+      <p>Shipping</p>
+      <p>Rs. 40.00</p>
+    </div>
+
+    <div class="total">
+      <p>Total</p>
+      <p>Rs. 1239.00</p>
+
+    </div>
+
+    <button class="normal">Place Order</button>
+  </div>
+  </div>
+</section>
+{% endblock main-content %}

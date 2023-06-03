@@ -1,0 +1,156 @@
+{% extends 'app/base.html' %}
+
+{% load static%}
+
+{% block title %}Home {% endblock title %}
+    {% block main-content %}
+
+    <section id="hero">
+      <h4>Trade-in-offer</h4>
+      <h2>Super value deals</h2>
+      <h1>On all products</h1>
+      <p>Save more with coupons & up to 70% off!</p>
+
+      <button>Shop Now</button>
+    </section>
+
+    <section id="feature" class="section-p1">
+      <div class="fe-box">
+        <img src="{% static 'app/img/features/f1.avif' %}" alt="" />
+        <h6>Free Shipping</h6>
+      </div>
+
+      <div class="fe-box">
+        <img src="{% static 'app/img/features/f2.jpg' %}" alt="" />
+        <h6>Save Money</h6>
+      </div>
+
+      <div class="fe-box">
+        <img src="{% static 'app/img/features/f8.avif' %}" alt="" />
+        <h6>Safe Delivery</h6>
+      </div>
+
+      <div class="fe-box">
+        <img src="{% static 'app/img/features/f6.avif' %}" alt="" />
+        <h6>Online Shopping</h6>
+      </div>
+      <div class="fe-box">
+        <img src="{% static 'app/img/features/f7.avif' %}" alt="" />
+        <h6>Pay on Delivery</h6>
+      </div>
+
+      <div class="fe-box">
+        <img src="{% static 'app/img/features/f3.avif' %}" alt="" />
+        <h6>24/7 Support</h6>
+      </div>
+    </section>
+
+    <section id="product1" class="section-p1">
+      <h2>Fashion Top wear</h2>
+      <p>Summer Collection New Modern Design</p>
+
+      <div class="pro-container">
+
+
+        {% for b in topwear%}
+
+        <div class="pro">
+          <img src="{{b.product_img.url}}" alt="" />
+          <div class="des">
+            <span>{{b.brand}}</span>
+
+            <h5>{{b.title}}</h5>
+
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4> ₹ {{b.discounted_price}}</h4>
+          </div>
+
+          <a href="#"> <i class="fa-solid fa-cart-shopping cart"></i></a>
+        </div>
+
+        {% endfor %}
+
+        
+      </div>
+    </section>
+
+    <section id="product1" class="section-p1">
+      <h2>Home</h2>
+      <p>Home Accessories</p>
+
+      <div class="pro-container">
+
+
+        {% for h in home%}
+
+        <div class="pro">
+          <img src="{{h.product_img.url}}" alt="" />
+          <div class="des">
+            <span>{{h.brand}}</span>
+
+            <h5>{{h.title}}</h5>
+
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4> ₹ {{h.discounted_price}}</h4>
+          </div>
+
+          <a href="#"> <i class="fa-solid fa-cart-shopping cart"></i></a>
+        </div>
+
+        {% endfor %}
+
+        
+      </div>
+    </section>
+    
+    <section id="product1" class="section-p1">
+      <h2>Fashion Top wear</h2>
+      <p>Summer Collection New Modern Design</p>
+
+      <div class="pro-container">
+
+
+        {% for b in topwear%}
+
+        <div class="pro">
+          <img src="{{b.product_img.url}}" alt="" />
+          <div class="des">
+            <span>{{b.brand}}</span>
+
+            <h5>{{b.title}}</h5>
+
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4> ₹ {{b.discounted_price}}  </h4>
+          </div>
+
+          <a href="#"> <i class="fa-solid fa-cart-shopping cart"></i></a>
+        </div>
+
+        {% endfor %}
+
+        
+      </div>
+    </section>
+    
+    {% endblock main-content %}
+
+    
+ 

@@ -1,0 +1,30 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block link%}
+    <link rel="stylesheet" href="{%static 'app/css/login.css'%}">
+{% endblock link%}
+{% block title %}Login{% endblock title %}
+{% block main-content %}
+<div class="lcontainer">
+    <div class="box section-p1">
+
+    <h2>Login</h2>
+
+    <div class="col">
+        <form action="post">
+            <input type="email" placeholder="Email">
+            <input type="password" placeholder="Password">
+
+            <a href="#">forgot password?</a>
+            <button class="normal">Login</button>
+
+            <div class="lfooter">
+                <a href="#">New to RedPandas? SignUp</a>
+            </div>
+        </form>
+        
+    </div>
+</div>
+</div>
+
+{% endblock main-content %}
