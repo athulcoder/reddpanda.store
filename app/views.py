@@ -18,8 +18,14 @@ class ProductView(View):
 # def home(request):
 #  return render(request, 'app/index.html')
 
-def product_detail(request):
- return render(request, 'app/sproduct.html')
+
+class SingleProductDetailView(View):
+  def get(self, request, pk):
+   product = Product.objects.get(pk=pk)
+   return render(request, 'app/sproduct.html', {'product':product})
+
+# def product_detail(request):
+#  return render(request, 'app/sproduct.html')
 
 def add_to_cart(request):
  return render(request, 'app/addtocart.html')

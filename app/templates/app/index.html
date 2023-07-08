@@ -44,22 +44,23 @@
         <h6>24/7 Support</h6>
       </div>
     </section>
+    {% comment %} Digital Product Section {% endcomment %}
+
+    {% if  new.0.title %}
 
     <section id="product1" class="section-p1">
-      <h2>Fashion Top wear</h2>
+      <h2>New Arrivals </h2>
       <p>Summer Collection New Modern Design</p>
 
       <div class="pro-container">
-
-
-        {% for b in topwear%}
+        {% for item in new%}
 
         <div class="pro">
-          <img src="{{b.product_img.url}}" alt="" />
+          <img src="{{item.product_img.url}}" alt="" />
           <div class="des">
-            <span>{{b.brand}}</span>
+            <span>{{item.brand}}</span>
 
-            <h5>{{b.title}}</h5>
+            <h5>{{item.title}}</h5>
 
             <div class="star">
               <i class="fas fa-star"></i>
@@ -68,7 +69,7 @@
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
             </div>
-            <h4> ₹ {{b.discounted_price}}</h4>
+            <h4> ₹ {{item.discounted_price}}</h4>
           </div>
 
           <a href="#"> <i class="fa-solid fa-cart-shopping cart"></i></a>
@@ -79,22 +80,64 @@
         
       </div>
     </section>
+    {%endif%}
+    
+
+    {% comment %} Digital Product Section {% endcomment %}
+
+    {% if  digital.0.title %}
 
     <section id="product1" class="section-p1">
-      <h2>Home</h2>
+      <h2>Digital | Tech</h2>
+      <p>Summer Collection New Modern Design</p>
+
+      <div class="pro-container">
+        {% for item in digital%}
+
+       <div class="pro" onclick=window.location.href="{% url 'product-detail' item.id%}">
+          <img src="{{item.product_img.url}}" alt="" />
+          <div class="des">
+            <span>{{item.brand}}</span>
+
+            <h5>{{item.title}}</h5>
+
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4> ₹ {{item.discounted_price}}</h4>
+          </div>
+
+          <a href="#"> <i class="fa-solid fa-cart-shopping cart"></i></a>
+        </div>
+
+        {% endfor %}
+
+        
+      </div>
+    </section>
+    {%endif%}
+{% comment %} Home Product Section {% endcomment %}
+    {% if  home.0.title %}
+
+    <section id="product1" class="section-p1">
+      <h2>Home|</h2>
       <p>Home Accessories</p>
 
       <div class="pro-container">
 
 
-        {% for h in home%}
+        {% for item in home%}
 
-        <div class="pro">
-          <img src="{{h.product_img.url}}" alt="" />
+        <div class="pro" onclick=window.location.href="{% url 'product-detail' item.id%}">
+          <img src="{{item.product_img.url}}" alt="" />
           <div class="des">
-            <span>{{h.brand}}</span>
+            <span>{{item.brand}}</span>
 
-            <h5>{{h.title}}</h5>
+            <h5>{{item.title}}</h5>
 
             <div class="star">
               <i class="fas fa-star"></i>
@@ -103,7 +146,7 @@
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
             </div>
-            <h4> ₹ {{h.discounted_price}}</h4>
+            <h4> ₹ {{item.discounted_price}}</h4>
           </div>
 
           <a href="#"> <i class="fa-solid fa-cart-shopping cart"></i></a>
@@ -114,7 +157,10 @@
         
       </div>
     </section>
-    
+    {% endif%}
+{% comment %} Topwear Section {% endcomment %}
+    {% if  topwear.0.title %}
+
     <section id="product1" class="section-p1">
       <h2>Fashion Top wear</h2>
       <p>Summer Collection New Modern Design</p>
@@ -122,14 +168,14 @@
       <div class="pro-container">
 
 
-        {% for b in topwear%}
+        {% for item in topwear%}
 
-        <div class="pro">
-          <img src="{{b.product_img.url}}" alt="" />
+        <div class="pro" onclick=window.location.href="{% url 'product-detail' item.id%}">
+          <img src="{{item.product_img.url}}" alt="" />
           <div class="des">
-            <span>{{b.brand}}</span>
+            <span>{{item.brand}}</span>
 
-            <h5>{{b.title}}</h5>
+            <h5>{{item.title}}</h5>
 
             <div class="star">
               <i class="fas fa-star"></i>
@@ -138,7 +184,7 @@
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
             </div>
-            <h4> ₹ {{b.discounted_price}}  </h4>
+            <h4> ₹ {{item.discounted_price}}  </h4>
           </div>
 
           <a href="#"> <i class="fa-solid fa-cart-shopping cart"></i></a>
@@ -149,7 +195,47 @@
         
       </div>
     </section>
-    
+    {%endif%}
+
+
+    {% comment %} bottomwear Section {% endcomment %}
+    {% if  bottomwear.0.title %}
+
+    <section id="product1" class="section-p1">
+      <h2> Flashsale for Bottom Wears</h2>
+      <p>Summer Collection New Modern Design</p>
+
+      <div class="pro-container">
+
+
+        {% for item in bottomwear%}
+
+        <div class="pro" onclick=window.location.href="{% url 'product-detail' item.id%}">
+          <img src="{{item.product_img.url}}" alt="" />
+          <div class="des">
+            <span>{{item.brand}}</span>
+
+            <h5>{{item.title}}</h5>
+
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4> ₹ {{item.discounted_price}}  </h4>
+          </div>
+
+          <a href="#"> <i class="fa-solid fa-cart-shopping cart"></i></a>
+        </div>
+
+        {% endfor %}
+
+        
+      </div>
+    </section>
+    {%endif%}
     {% endblock main-content %}
 
     
