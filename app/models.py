@@ -11,8 +11,8 @@ STATE_CHOICES =(
 class Customer(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=200)
-    mobile_number = models.IntegerField(default=0, max_length=12)
-    other_mobile_number =models.CharField(default=0,max_length=12)
+    mobile_number = models.IntegerField(default=0)
+    other_mobile_number =models.IntegerField(default=0)
 
     address = models.TextField(default='none')
     locality = models.CharField(max_length=200)
@@ -41,7 +41,8 @@ class Product(models.Model):
     brand = models.CharField(max_length=100)
     category = models.CharField(choices=CATEGORY_CHOICES, max_length=2)
 
-    product_img = models.ImageField(upload_to='product_img')
+    product_img = models.ImageField(upload_to='product_img' )
+    
 
     def __str__(self):
         return str(self.id)
