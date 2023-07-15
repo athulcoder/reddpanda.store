@@ -6,12 +6,52 @@
 {% block main-content %}
     
 <section class="section-p1" id="single-pro">
- <div class="equal-size">
-  <p>lorem</p>
+ <div class="equal-size" id="pro-img">
+    <div class="side-box">
+      <img src="{{product.product_img.url}}" alt="" width="70px">
+      <img src="{{product.product_img.url}}" alt="" width="70px">
+      <img src="{{product.product_img.url}}" alt="" width="70px">
+      <img src="{{product.product_img.url}}" alt="" width="70px">
+      <img src="{{product.product_img.url}}" alt="" width="70px">
+    </div>
+
+    <div id="before-div">
+      <div id="active-img-box">
+
+        <img src="{{product.product_img.url}}" alt=""  id="active-img">
+      </div>
+
+      
+    </div>
  </div>
- <div class="equal-size">
-  <p>lorem</p>
+ <div class="equal-size" id="pro-det">
+  <h3>{{product.title}}</h3>
+
+  <div class="star">
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+  </div>
+
+  <div class="price">
+    <h4>special price</h4>
+    <p style="color: #000; font-size: 30px; font-weight: 800;" >₹ {{product.discounted_price}} <p style="text-decoration: line-through;color: grey; ">₹ {{product.selling_price}}</p></p>
+  </div>
+  <div class="detail">
+    <h4>Product Details</h4>
+<p>{{product.description}}</p>
+
+<div id="button-b"> 
+  <button class="p-btn" style="  background-color: #388b86;"> Add TO CART</button>
+  <button class="p-btn" style="  background-color: #055752;"> Buy Now</button>
+
+</div>
+   </div>
+
  </div>
+ 
 </section>
 
     <section id="product1" class="section-p1">

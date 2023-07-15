@@ -1,0 +1,14 @@
+{% extends 'app/profile.html' %}
+{% load static %}
+{% block account-info %} 
+
+    <h4 style="margin:20px 0;">Personal Information</h4>
+    
+    <div>
+    <input value="{{user.first_name}}" type="text" disabled>
+    <input value="{{user.last_name}}" type="text" disabled>
+    </div>
+
+    <h4 style="margin:20px 0 ;">Email Address</h4>
+    <input value="{{user.email}}" type="text" disabled>
+{% endblock account-info %}

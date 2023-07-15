@@ -1,42 +1,41 @@
-{% extends 'app/base.html' %}
+{% extends 'app/profile.html' %}
 {% load static %}
-{% block title %}Buy Now{% endblock title %}
-{% block main-content %}
-<div class="container my-5">
- <div class="row">
- <h3>Welcome Sonam</h3>
-  <div class="col-sm-2 border-end">
-   <ul class="list-unstyled">
-    <li class="d-grid"><a href="{% url 'profile' %}" class="btn btn-primary">Profile</a></li>
-    <li class="d-grid"><a href="{% url 'address' %}" class="btn">Address</a></li>
-   </ul>
-  </div>
-  <div class="col-sm-9 offset-sm-1">
-   <div class="row">
-    <div class="col-sm-6">
-     <div class="card">
-      <div class="card-body">
-       <h3>Address 1</h3>
-       <p>Name: Rahul Kumar</p>
-       <p>Address 1: Lalpur</p>
-       <p>Address 2: Ranchi</p>
-       <p>State: Jharkhand</p>
-      </div>
-     </div>
-    </div>
-    <div class="col-sm-6">
-     <div class="card">
-      <div class="card-body">
-       <h3>Address 2</h3>
-       <p>Name: Rohit Kumar</p>
-       <p>Address 1: Lalpur</p>
-       <p>Address 2: Ranchi</p>
-       <p>State: Jharkhand</p>
-      </div>
-     </div>
-    </div>
-   </div>
-  </div>
- </div>
-</div>
-{% endblock main-content %}
+{% block account-info %} 
+
+<h4>Manage Addresses</h4>
+
+
+    <form method="POST">
+        {%csrf_token%}
+        <div>
+            <input type="text" placeholder="Name" name="name" required>
+            <input type="number" placeholder="10-digit mobile number" name="phone" required>
+        </div>
+
+        <div>
+            <input type="number" placeholder="PinCode" name="pincode" required>
+            <input type="text" placeholder="Locality" name="locality" required>
+        </div>
+
+        <textarea name="address" placeholder="Address(Area and Street)" id="" cols="40" rows="10" style="resize: none;
+        " required></textarea>
+
+        <div>
+            <input  type="text" placeholder="City/District/Town" name="city" required>
+            <div class="state-sel" >
+                <select name="state" id="state" required >
+                    <option value="Kerala" selected>Kerala</option>
+                    <option value="Tamil Nadu" >Tamil Nadu</option>
+                    <option value="Karnataka" >Karnataka</option>
+                </select>
+            </div>
+            </div>
+
+        <div>
+            <input type="text" placeholder="Landmark" name="landmark" >
+            <input type="text" placeholder="Alternative Phone" name="alt_phone">
+        </div>
+
+        <button class="normal">Submit</button>
+    </form>
+{% endblock account-info %}

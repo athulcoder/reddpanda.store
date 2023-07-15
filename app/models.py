@@ -11,8 +11,13 @@ STATE_CHOICES =(
 class Customer(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=200)
+    mobile_number = models.IntegerField(default=0, max_length=12)
+    other_mobile_number =models.CharField(default=0,max_length=12)
+
+    address = models.TextField(default='none')
     locality = models.CharField(max_length=200)
     city = models.CharField(max_length=50)
+    landmark = models.CharField(max_length=60, default='none')
     pincode = models.IntegerField()
     state = models.CharField(choices=STATE_CHOICES, max_length=50)
 

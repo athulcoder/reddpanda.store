@@ -11,9 +11,10 @@
     <h2>Login</h2>
 
     <div class="col">
-        <form action="post">
-            <input type="email" placeholder="Email">
-            <input type="password" placeholder="Password">
+        <form method="post">
+            {% csrf_token %}
+            <input type="email" placeholder="Email" name="username">
+            <input type="password" placeholder="Password" name="password">
 
             <a href="#">forgot password?</a>
             <button class="normal">Login</button>

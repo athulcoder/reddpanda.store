@@ -35,8 +35,12 @@
           <li><a href="{% url 'home' %}"">Home</a></li>
           <li><a href="{% url 'shop' %}">Shop</a></li>
           <li><a href="{% url 'category'%}">Category</a></li>
+          {% if request.user.is_authenticated %}
+          <li><a href="{% url 'profile' %}">{{user.first_name}}</a></li>
+          {%else%}
           <li><a href="{% url 'login' %}">Login</a></li>
           <li><a href="{% url 'customerregistration' %}">Register</a></li>
+          {% endif%}
 
           <li>
             <a id="lg-bag" href="{% url 'cart' %}"><i class="fa-solid fa-bag-shopping"></i></a>

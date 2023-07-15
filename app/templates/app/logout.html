@@ -1,0 +1,7 @@
+{% extends 'app/profile.html' %}
+{% load static %}
+{% block account-info %} 
+
+<h3 align="center" style="margin-top: 10px;"> Logout  this Account</h3>
+<a href="{% url 'logout'%}" class="normal" style="background-color: red; margin-top: 50px; width: 300px;text-align: center; "> Logout</a>
+{% endblock account-info %}

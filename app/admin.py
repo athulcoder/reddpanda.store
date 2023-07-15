@@ -10,7 +10,7 @@ from .models import(
 
 @admin.register(Customer)
 class CustomerModelAdmin(admin.ModelAdmin):
-    list_display =['id','user', 'locality','city', 'pincode', 'state']
+    list_display =['id','user', 'name','locality','city', 'pincode', 'state','mobile_number','other_mobile_number','address','landmark']
 
 @admin.register(Product)
 class ProductModelAdmin(admin.ModelAdmin):

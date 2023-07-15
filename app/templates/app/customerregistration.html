@@ -11,14 +11,20 @@
     <h2>Create Account</h2>
 
     <div class="col">
-        <form action="post">
-
-            <input type="text" placeholder="Full Name">
-            <input type="email" placeholder="Email">
-            <input type="password" placeholder="Password">
-
-            <button class="normal">Sign up</button>
-
+        <form method="post">
+    {% csrf_token %}
+            <input type="text" placeholder="First Name" name="first_name" required>
+            <input type="text" placeholder="Last Name" name="last_name">
+            <input type="email" placeholder="Email" name="email" required>
+            <input type="password" placeholder="Password" name="password1" required>
+            <input type="password" placeholder="Confirm Password" name="password2" required>
+        {% if messages %}
+        {% for message in messages %}
+            <p style="color: red;">{{message}}</p>
+          
+        {%endfor%}      
+        {% endif %}   
+        <button class="normal">Sign up</button>   
             <div class="lfooter">
                 <a href="#">Have an account? Login</a>
             </div>
