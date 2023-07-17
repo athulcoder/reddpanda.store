@@ -20,8 +20,7 @@
             <input type="password" placeholder="Confirm Password" name="password2" required>
         {% if messages %}
         {% for message in messages %}
-            <p style="color: red;">{{message}}</p>
-          
+          <div {% if message.tags %} class="alert-{{message.tags}}" {%endif%}>{{message}}</div>
         {%endfor%}      
         {% endif %}   
         <button class="normal">Sign up</button>   

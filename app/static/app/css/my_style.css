@@ -24,7 +24,25 @@ input:focus, textarea:focus{
   padding: 0;
   overflow-x: hidden;
 }
+.alert-success{
+  width: 100%;
+  padding: 7px 5px ;
+  background-color: #d1e8f2;
+  color: #088178;
+  border-radius: 10px;
+  font-family: "Open Sans", sans-serif;
 
+
+}
+.alert-error{
+  width: 100%;
+  padding: 7px 0 7px 5px ;
+  background-color: #f2d1d1;
+  color: #f43131;
+  border-radius: 10px;
+  font-family: "Open Sans", sans-serif;
+
+}
 body {
   width: 100%;
 }
@@ -687,6 +705,9 @@ select{
 
 }
 
+#account .address_box{
+  margin: 10px;
+}
 
 /*  Start Media Query */
 

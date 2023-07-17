@@ -55,6 +55,9 @@ def profile(request):
 
 
 def address(request):
+
+  address_added = Customer.objects.filter(user=request.user)
+
   if request.method=="POST":
     user = request.user
     name = request.POST.get('name')
@@ -71,7 +74,7 @@ def address(request):
     costumer.save()
 
     return redirect('address')
-  return render(request, 'app/address.html')
+  return render(request, 'app/address.html',{'address_added':address_added})
 
 def orders(request):
  return render(request, 'app/orders.html')
@@ -83,26 +86,27 @@ def mobile(request):
  return render(request, 'app/mobile.html')
 
 def login_(request):
-    if request.method=='POST':
-      username = request.POST.get('username')
-      password = request.POST.get('password')
+  if request.method=='POST':
+    username = request.POST.get('username')
+    password = request.POST.get('password')
 
-      user = authenticate(request,username=username, password=password)
-      if user is not None:
-       login(request, user)
-       return redirect('home')
-
+    user = authenticate(request,username=username, password=password)
+    if user is not None:
+      login(request, user)
+      return redirect('home')
+  else:
+    
     return render(request, 'app/login.html')
 
 def customerregistration(request):
- if request.method=='POST':
+  if request.method=='POST':
     first_name = request.POST.get('first_name')
     last_name = request.POST.get('last_name')
     email  = request.POST.get('email')
     password1  = request.POST.get('password1')
     password2  = request.POST.get('password2')
 
-    if password1==password2:
+    if password1==password2 and '@' in email and '.' in email:
       messages.success(request, "Congratulations!! Account created successfully")
       my_user = User.objects.create_user(email,email, password1)
       my_user.first_name = first_name
@@ -111,15 +115,19 @@ def customerregistration(request):
       login(request, my_user)
 
       return redirect('home')
+    elif '@' not in email or '.' not in email:
+      messages.error(request, 'Invalid Email Entered')
+    else:
+      messages.error(request, "Passwords doesn't match !")
   
- return render(request, 'app/customerregistration.html')
+  return render(request, 'app/customerregistration.html')
 
 
 def checkout(request):
- return render(request, 'app/checkout.html')
+  return render(request, 'app/checkout.html')
 
 def shop(request):
- return render(request, 'app/shop.html')
+  return render(request, 'app/shop.html')
 
 def category(request):
- return render(request, 'app/category.html')
+  return render(request, 'app/category.html')

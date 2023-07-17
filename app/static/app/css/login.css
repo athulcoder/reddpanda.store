@@ -77,7 +77,7 @@
 @media (max-width: 477px){
 
     .lcontainer{
-        height: 40vh;
+        height: 100%;
     }
     .lcontainer .box{
         margin: 10px 0;
