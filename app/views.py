@@ -25,12 +25,15 @@ class ProductView(View):
 class SingleProductDetailView(View):
   def get(self, request, pk):
    product = Product.objects.get(pk=pk)
-   return render(request, 'app/sproduct.html', {'product':product})
+   all_products =  Product.objects.filter(category=product.category)
+  
+
+   return render(request, 'app/sproduct.html', {'product':product,'all_products':all_products})
 
 # def product_detail(request):
 #  return render(request, 'app/sproduct.html')
 
-def add_to_cart(request):
+def show_my_cart(request):
  return render(request, 'app/addtocart.html')
 
 def logout_(request):
@@ -76,6 +79,27 @@ def address(request):
     return redirect('address')
   return render(request, 'app/address.html',{'address_added':address_added})
 
+def edit_address(request,ck):
+  address = Customer.objects.get(id=ck)
+
+  if request.method=="POST":
+    address.name = request.POST.get('name')
+    address.phone = request.POST.get('phone')
+    address.city = request.POST.get('city')
+    address.pincode = request.POST.get('pincode')
+    address.address = request.POST.get('address')
+    address.state = request.POST.get('state')
+    address.landmark = request.POST.get('landmark')
+    address.locality = request.POST.get('locality')
+    address.alt_phone = request.POST.get('alt_phone')
+    address.save()
+    return redirect('address')
+  return render(request, 'app/address_edit.html',{'address':address})
+
+def delete_address(request,ck):
+  address = Customer.objects.get(id=ck)
+  address.delete()
+  return redirect('address')
 def orders(request):
  return render(request, 'app/orders.html')
 
@@ -127,7 +151,15 @@ def checkout(request):
   return render(request, 'app/checkout.html')
 
 def shop(request):
-  return render(request, 'app/shop.html')
+  topwear = Product.objects.filter(category='TW')
+  bottomwear = Product.objects.filter(category='BW')
+  footwear = Product.objects.filter(category='FW')
+  digital = Product.objects.filter(category='D')
+  home = Product.objects.filter(category='H')
+  new = Product.objects.filter(category='N')
+  
+  return render(request, 'app/shop.html',{'topwear':topwear, 'bottomwear':bottomwear, 'footwear':footwear, 'digital':digital,'home':home,'new':new})
+
 
 def category(request):
   return render(request, 'app/category.html')

@@ -56,7 +56,7 @@
       <div class="pro-container">
         {% for item in new%}
 
-        <div class="pro">
+        <div class="pro" onclick=window.location.href="{% url 'product-detail' item.id%}">
           <img src="{{item.product_img.url}}" alt="" />
           <div class="des">
             <span>{{item.brand}}</span>
@@ -90,8 +90,7 @@
 
     <section id="product1" class="section-p1">
       <h2>Digital | Tech</h2>
-      <p>Summer Collection New Modern Design</p>
-
+      <p>“Opportunities don't happen, you create them.”</p>
       <div class="pro-container">
         {% for item in digital%}
 

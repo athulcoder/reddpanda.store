@@ -9,13 +9,16 @@
         {% for address in address_added%}
 
         <div class="address_box">
-            <h5>{{address.name}}</h5>
+            <div style="display: flex;"><h5>{{address.name}}</h5>  <a href="{% url 'edit' address.id%}" style="text-decoration: none; color: blue; margin-left: 7px;">Edit</a>
+            </div>
             <p>{{address.address}} ,{{address.landmark}}</p>
             <p>{{address.locality}},{{address.city}}, {{address.state}}, {{address.pincode}}</p>
             <p>{{address.mobile_number}}, {{address.other_mobile_number}}</p>
         </div>
         {%endfor%}
     {%endif%}
+
+    <h5>Add New Address</h5>
 
     <form method="POST">
         {%csrf_token%}

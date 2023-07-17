@@ -1,0 +1,60 @@
+{% extends 'app/profile.html' %}
+{% load static %}
+{% block account-info %} 
+
+<h4>Edit Address</h4>
+    
+    <!-- {% if address_added %}
+
+        {% for address in address_added%}
+
+        <div class="address_box">
+            <div style="display: flex;"><h5>{{address.name}}</h5>  <a href="{% url 'edit' address.id%}" style="text-decoration: none; color: blue; margin-left: 7px;">Edit</a>
+            </div>
+            <p>{{address.address}} ,{{address.landmark}}</p>
+            <p>{{address.locality}},{{address.city}}, {{address.state}}, {{address.pincode}}</p>
+            <p>{{address.mobile_number}}, {{address.other_mobile_number}}</p>
+        </div>
+        {%endfor%}
+    {%endif%} -->
+
+    <form method="POST">
+        {%csrf_token%}
+        <div>
+            <input type="text" placeholder="Name" name="name" required value="{{address.name}}">
+            <input type="number" placeholder="10-digit mobile number" name="phone" required value="{{address.mobile_number}}">
+        </div>
+
+        <div>
+            <input type="number" placeholder="PinCode" name="pincode" value="{{address.pincode}}" required>
+            <input type="text" placeholder="Locality" name="locality" value="{{address.locality}}" required>
+        </div>
+
+        <textarea  name="address" placeholder="Address(Area and Street)" id="" cols="40" rows="10" style="resize: none;
+        " required>{{address.address}}
+    </textarea>
+
+        <div>
+            <input  type="text" placeholder="City/District/Town" name="city" required value="{{address.city}}">
+            <div class="state-sel" >
+                <select name="state" id="state" required  >
+                    <option value="Kerala"  selected>Kerala</option>
+                    <option value="Tamil Nadu" >Tamil Nadu</option>
+                    <option value="Karnataka" >Karnataka</option>
+                </select>
+            </div>
+            </div>
+
+        <div>
+            <input type="text" placeholder="Landmark" name="landmark" value="{{address.landmark}}" >
+            <input type="text" placeholder="Alternative Phone" name="alt_phone" value="{{address.other_mobile_number}}">
+        </div>
+
+        <input type="submit" value="Save" class="normal">
+        <input onclick="window.location.href=`{%url 'address'%}` " class="normal" style="background-color: rgb(10, 187, 163); margin-top: 7px;" value="Cancel" type="button" >
+
+        <input onclick="window.location.href=`{% url 'delete_address' address.id%}`" type="button" value=" delete" class="normal" style="background-color: rgb(245, 59, 59); margin-top: 7px; ">
+    </form>
+
+
+{% endblock account-info %}

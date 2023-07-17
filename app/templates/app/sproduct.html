@@ -40,14 +40,16 @@
     <p style="color: #000; font-size: 30px; font-weight: 800;" >₹ {{product.discounted_price}} <p style="text-decoration: line-through;color: grey; ">₹ {{product.selling_price}}</p></p>
   </div>
   <div class="detail">
+
+    <div id="button-b"> 
+      <button class="p-btn" style="  background-color: #388b86; " onclick="window.location.href=`{%url 'cart'%}`"> Add TO CART</button>
+      <button class="p-btn" style="  background-color: #055752;"> Buy Now</button>
+    
+    </div>
     <h4>Product Details</h4>
 <p>{{product.description}}</p>
 
-<div id="button-b"> 
-  <button class="p-btn" style="  background-color: #388b86;"> Add TO CART</button>
-  <button class="p-btn" style="  background-color: #055752;"> Buy Now</button>
 
-</div>
    </div>
 
  </div>
@@ -55,16 +57,19 @@
 </section>
 
     <section id="product1" class="section-p1">
-      <h2>Shop</h2>
-      <p>Summer Collection New Modern Design</p>
+      <h2>Similar Items </h2>
+      <p>offer closes soon!</p>
 
       <div class="pro-container">
-        <div class="pro">
-          <img src="{% static 'app/img/products/p3.jpg' %}" alt="" />
+        
+        {% if all_products%}
+        {%for item in all_products%}
+        <div class="pro" onclick=window.location.href="{% url 'product-detail' item.id %}">
+          <img src="{{item.product_img.url}}" alt="" />
           <div class="des">
-            <span>adidas</span>
+            <span>{{item.brand}}</span>
 
-            <h5>Cartoon Astronat T-shirt</h5>
+            <h5>{{item.title}}</h5>
 
             <div class="star">
               <i class="fas fa-star"></i>
@@ -73,151 +78,14 @@
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
             </div>
-            <h4>$78</h4>
+            <h4>{{item.discounted_price}}</h4>
           </div>
 
           <a href="#"> <i class="fa-solid fa-cart-shopping cart"></i></a>
         </div>
-
-        <div class="pro">
-          <img src="{% static 'app/img/products/p4.jpg' %}" alt="" />
-          <div class="des">
-            <span>adidas</span>
-
-            <h5>Cartoon Astronat T-shirt</h5>
-
-            <div class="star">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <h4>$78</h4>
-          </div>
-
-          <a href="#"> <i class="fa-solid fa-cart-shopping cart"></i></a>
-        </div>
-
-        <div class="pro">
-          <img src="{% static 'app/img/products/p4.jpg' %}" alt="" />
-          <div class="des">
-            <span>adidas</span>
-
-            <h5>Cartoon Astronat T-shirt</h5>
-
-            <div class="star">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <h4>$78</h4>
-          </div>
-
-          <a href="#"> <i class="fa-solid fa-cart-shopping cart"></i></a>
-        </div>
-
-        <div class="pro">
-          <img src="{% static 'app/img/products/p5.webp' %}" alt="" />
-          <div class="des">
-            <span>adidas</span>
-
-            <h5>Cartoon Astronat T-shirt</h5>
-
-            <div class="star">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <h4>$78</h4>
-          </div>
-
-          <a href="#"> <i class="fa-solid fa-cart-shopping cart"></i></a>
-        </div>
-
-        <div class="pro">
-          <img src="{% static 'app/img/products/p6.jpg' %}" alt="" />
-          <div class="des">
-            <span>adidas</span>
-
-            <h5>Cartoon Astronat T-shirt</h5>
-
-            <div class="star">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <h4>$78</h4>
-          </div>
-
-          <a href="#"> <i class="fa-solid fa-cart-shopping cart"></i></a>
-        </div>
-
-        <div class="pro">
-          <img src="{% static 'app/img/products/p3.jpg' %}" alt="" />
-          <div class="des">
-            <span>adidas</span>
-
-            <h5>Cartoon Astronat T-shirt</h5>
-
-            <div class="star">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <h4>$78</h4>
-          </div>
-
-          <a href="#"> <i class="fa-solid fa-cart-shopping cart"></i></a>
-        </div>
-
-        <div class="pro">
-          <img src="{% static 'app/img/products/p1.jpg' %}" alt="" />
-          <div class="des">
-            <span>adidas</span>
-
-            <h5>Cartoon Astronat T-shirt</h5>
-
-            <div class="star">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <h4>$78</h4>
-          </div>
-
-          <a href="#"> <i class="fa-solid fa-cart-shopping cart"></i></a>
-        </div>
-
-        <div class="pro">
-          <img src="{% static 'app/img/products/p2.jpg' %}" alt="" />
-          <div class="des">
-            <span>adidas</span>
-
-            <h5>Cartoon Astronat T-shirt</h5>
-
-            <div class="star">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <h4>$78</h4>
-          </div>
-
-          <a href="#"> <i class="fa-solid fa-cart-shopping cart"></i></a>
-        </div>
+        {%endfor%}
+        {%endif%}
+        
       </div>
     </section>
 
