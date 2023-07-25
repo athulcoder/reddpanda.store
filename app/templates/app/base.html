@@ -8,6 +8,7 @@
 
     <!-- Bootstrap CSS -->
     {% block link%}
+
     {% endblock link%}
 
     <!--Owl Carousel CSS-->
@@ -21,12 +22,16 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <!-- bootstrap -->
 
 
     <title>RedPandas| {% block title %} {% endblock title %} </title>
   </head>
   <body>
     <section id="header">
+      <div id="toastContainer"></div>
+
+
       <a href="#">
         <img src="{% static 'app/img/logo.png' %}" class="logo" width="50" alt="" />
       </a>
@@ -35,24 +40,34 @@
         <ul id="navbar">
           <li><a href="{% url 'home' %}"">Home</a></li>
           <li><a href="{% url 'shop' %}">Shop</a></li>
-          <li><a href="{% url 'category'%}">Category</a></li>
+          <li><a href="{% url 'category_digital'%}">Category</a></li>
           {% if request.user.is_authenticated %}
           <li><a href="{% url 'profile' %}">{{user.first_name}}</a></li>
           {%else%}
           <li><a href="{% url 'login' %}">Login</a></li>
-          <li><a href="{% url 'customerregistration' %}">Register</a></li>
+          <li><a href="{% url 'signup' %}">Register</a></li>
           {% endif%}
+          {% if request.user.is_authenticated %}
 
           <li>
-            <a id="lg-bag" href="{% url 'cart' %}"><i class="fa-solid fa-bag-shopping"></i></a>
+            <!-- <span class="notifi"><p>20</p></span> -->
+
+            <a id="lg-bag" href="{% url 'show_my_cart' %}"> <i class="fa-solid fa-cart-shopping"></i></a>
           </li>
+          {% endif%}
+
           <i id="close" onclick="closeNav()" class="fa-solid fa-xmark"></i>        </ul>
       </div>
       <div id="mobile">
-        <a  href="{% url 'cart' %}"><i class="fa-solid fa-bag-shopping"></i></a>
+        {% if request.user.is_authenticated %}
+        
+        <!-- <span class="notifi"><p>20</p></span> -->
+        <a  href="{% url 'show_my_cart' %}" ><i class="fa-solid fa-cart-shopping" ></i></a>
+        {% endif%}
 
-        <i id="bar" onclick="showNav()" class="fas fa-outdent"></i>
+        <i id="bar" onclick="showNav()" class="fa-solid fa-bars"></i>
       </div>
+      
     </section>
    
     {% block main-content %} {% endblock main-content %}
@@ -122,5 +137,8 @@
     <script src="{% static 'app/js/owl.carousel.min.js' %}"></script>
     <script src="{% static 'app/js/all.min.js' %}"></script>
     <script src="{% static 'app/js/script.js' %}"></script>
+    <script src="{% static 'app/js/call_function_python.js' %}"></script>
+    <script src="{% static 'app/js/checkout.js' %}"></script>
+    <script src="{% static 'app/js/category.js' %}"></script>
   </body>
 </html>

@@ -13,74 +13,35 @@
   <div class="m-box ">
     <div class="cart-sec ">
       <h3>Cart</h3>
+      
+      {% for item in cart%}
       <div class="pro-box">
-        <img src="{% static 'app/img/products/p3.jpg' %}" alt="" />
+        <img src="{{item.product.product_img.url}}" alt="" />
         <div class="details">
-          <h4>Product 1</h4>
+          <h4>{{item.product.title}}</h4>
           <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente
-            ex laudantium sit modi minima animi iste? Quaerat ad repellendus
-            at!F Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta
-            non asperiores, mollitia optio porro nisi amet? Fugiat similique
-            voluptatibus rerum?
+          {{item.product.description}}
+            
           </p>
 
-          <input type="number" >
+          <div style="display: flex;">
+            <label for="quantity" >Quantity :</label>
+            <button  style=" color: white; width: 30px; height: 30px; background-color: black;border-radius: 2px ; border: none; margin-left: 20px; outline: none;" class="decrease-btn" pid="{{ item.product.id }}" onclick="window.location.href=`{% url 'decrease_quantity' item.id%}`">-</button>
+
+            <h5 id="p{{item.quantity}}"  style="padding: 0 10px;">{{item.quantity}}</h5>
+            <button  style=" color: white; width: 30px; height: 30px; background-color: black; border-radius: 2px ; border: none; outline: none; margin-right: 20px;" class="increase-btn" pid="{{ item.product.id }}" onclick="window.location.href=`{% url 'increase_quantity' item.id%}`">+</button>
+          </div>
 
           <div class="kfoot">
-            <button class="normal">Remove Item</button>
-            <h4> Rs. 1184.00</h4>
+            <button class="normal" onclick="window.location.href=`{%url 'remove_cart_item' item.id %}`">Remove Item</button>
+            <h4>Rs.{{item.product.discounted_price}}</h4>
           </div>
         </div>
 
         
       </div>
-
-      <div class="pro-box">
-        <img src="{% static 'app/img/products/p6.jpg' %}" alt="" />
-        <div class="details">
-          <h4>Product 2</h4>
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente
-            ex laudantium sit modi minima animi iste? Quaerat ad repellendus
-            at!F Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta
-            non asperiores, mollitia optio porro nisi amet? Fugiat similique
-            voluptatibus rerum?
-          </p>
-
-          <input type="number" >
-
-          <div class="kfoot">
-            <button class="normal">Remove Item</button>
-            <h4> Rs. 1184.00</h4>
-          </div>
-        </div>
-
-        
-      </div>
-
-      <div class="pro-box">
-        <img src="{% static 'app/img/products/p4.jpg' %}" alt="" />
-        <div class="details">
-          <h4>Product 3</h4>
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente
-            ex laudantium sit modi minima animi iste? Quaerat ad repellendus
-            at!F Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta
-            non asperiores, mollitia optio porro nisi amet? Fugiat similique
-            voluptatibus rerum?
-          </p>
-
-          <input type="number" >
-
-          <div class="kfoot">
-            <button class="normal">Remove Item</button>
-            <h4> Rs. 1184.00</h4>
-          </div>
-        </div>
-
-        
-      </div>
+      {%endfor%}
+  
       
     </div>
 
@@ -88,20 +49,20 @@
     <h3>The Total Amount of </h3>
     <div class="charge-box">
       <p>Amount</p>
-      <p>Rs. 430.00</p>
+      <p id="amount">Rs. {{amount}}</p>
     </div>
     <div class="charge-box">
       <p>Shipping</p>
-      <p>Rs. 40.00</p>
+      <p>Rs. {{shipping_amount}}</p>
     </div>
 
     <div class="total">
-      <p>Total</p>
-      <p>Rs. 1239.00</p>
+      <p >Total</p>
+      <p id="total">Rs.{{total_amount}}</p>
 
     </div>
 
-    <button class="normal">Place Order</button>
+    <button class="normal" onclick="window.location.href=`{%url 'checkout'%}`">Place Order</button>
   </div>
   </div>
 </section>

@@ -1,41 +1,90 @@
 {% extends 'app/base.html' %}
 {% load static %}
+{% block link%}
+<link rel="stylesheet" href="{% static 'app/css/checkout.css' %}" />
+<link rel="stylesheet" href="{% static 'app/css/cart.css'%}" />
+
+{% endblock link%}
 {% block title %}Buy Now{% endblock title %}
 {% block main-content %}
-<div class="container">
- <div class="row mt-5">
-  <div class="col-sm-6">
-    <h4>Order Summary</h4>
-    <hr>
-      <div class="card mb-2">
-        <div class="card-body">
-          <h5>Product: Product 1</h5>
-          <p>Quantity: 2</p>
-          <p class="fw-bold">Price: 100.00</p>
-        </div>
+
+<section id="checkout" class="section-p1">
+  <div class="tab-container">
+    <div class="tab-nav">
+      <button class="tab-button active" onclick="openTab(event, 'tab1')"> Order summary</button>
+      <button class="tab-button" onclick="openTab(event, 'tab2')">Delivery</button>
+      <button class="tab-button" onclick="openTab(event, 'tab3')">Payment</button>
+    </div>
+    
+    <div id="tab1" class="tab-content active">
+      <h2>Order Summary</h2>
+      {% for item in cart%}
+      <div class="product-container">
+        <!-- Product image -->
+        <img class="product-image" src="{{item.product.product_img.url}}" alt="Product Image">
+        <!-- Product name -->
+        <div class="product-name">{{item.product.title}}</div>
+        <!-- Product price -->
+        <div class="product-price">₹ {{item.product.discounted_price}}</div>
+        <!-- Product quantity number -->
+        <div class="product-quantity">quantity: {{item.quantity}} </div>
       </div>
-    <small>Term and Condition: Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, ullam saepe! Iure optio repellat dolor velit, minus rem. Facilis cumque neque numquam laboriosam, accusantium adipisci nisi nihil in et quis?</small>
-  </div>
-  <div class="col-sm-4 offset-sm-1">
-    <h4>Select Shipping Address</h4>
-    <hr>
-    <form action="">
-      <div class="card">
-        <div class="card-body">
-        <h5>Sonam Kumari</h5>
-        <p>Hirapur Dhanbad Jharkahnd</p>
+      {%endfor%}
+    </div>
+
+
+    <div id="tab2" class="tab-content">
+      <h2>Delivery Address</h2>
+      
+      <button class="normal" onclick="window.location.href=`{% url 'add_address' %}` "> Add new address</button>
+
+      {% if address_added%}
+      <h5>Select from below</h5>
+      {%endif%}
+      {% for address in address_added%}
+      <div class="address-container">
+        <h5>{{address.name}}</h5> 
+
+        <div style="display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 210px;">
+          <p>{{address.address}}</p>
+          <p>{{address.pincode}}</p>
+          <p>{{address.locality}}</p>
+          <p>{{address.landmark}}</p>
+          <p>{{address.state}}</p>
         </div>
+        <p>{{address.mobile_number}}</p>
+        <input type="radio" name="selected_address" id="" value="{{address.id}}">
       </div>
-        <div class="form-check mt-2 mb-5">
-          <input class="form-check-input" type="radio" value="">
-          <label class="form-check-label fw-bold" for="">
-            Address: 1 </label>
-        </div>
-        <div class="text-end">
-          <button type="submit" class="btn btn-warning mt-3 px-5 fw-bold">Continue</button>
-        </div>
-      </form>
+      {%endfor%}
+    </div>
+    <div id="tab3" class="tab-content">
+      <h2>Content of Tab 3</h2>
+      <p>This is the content of Tab 3.</p>
     </div>
   </div>
-</div>
+
+
+  <div class="order-price">
+    <h3>Order Summary</h3>
+    <div class="item">
+      <span>Amount</span>
+      <span>Rs.{{amount}}</span>
+    </div>
+    <div class="item">
+      <span>Shipping Charge</span>
+      <span>Rs.{{shipping_amount}}</span>
+    </div>
+    
+    <div class="total">
+      <span>Total:</span>
+      <span>Rs. {{total}}</span>
+    </div>
+  </div>
+</section>
+
+
 {% endblock main-content %}

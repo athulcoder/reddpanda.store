@@ -1,0 +1,14 @@
+{% extends 'app/base.html' %} 
+{% load static %} 
+{% block title %}Cart{% endblock title %} 
+
+{% block link %}
+{% endblock link %} 
+{% block main-content %}
+<section class="section-p1" id="empty-cart">
+    <img  src="{% static 'app/img/web-tool/empty1.avif' %}" alt="">
+    <h3>Your cart is empty</h3>
+
+    <p align="center" style="margin-top: 10px;">Looks like you have not added anything to your cart. Go ahead & explore top categories</p>
+</section>
+{% endblock main-content %}

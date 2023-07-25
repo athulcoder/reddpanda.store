@@ -20,7 +20,8 @@
 
     <h5>Add New Address</h5>
 
-    <form method="POST">
+    {% if checkout %}
+    <form method="POST" action="{% url 'add_address_once'%}">
         {%csrf_token%}
         <div>
             <input type="text" placeholder="Name" name="name" required>
@@ -51,6 +52,44 @@
             <input type="text" placeholder="Alternative Phone" name="alt_phone">
         </div>
 
-        <button class="normal">Submit</button>
+        <input class="normal" type="submit" value="Save" >
+
     </form>
+    {%else%}
+    <form method="POST" action="{% url 'address'%}">
+        {%csrf_token%}
+        <div>
+            <input type="text" placeholder="Name" name="name" required>
+            <input type="number" placeholder="10-digit mobile number" name="phone" required>
+        </div>
+
+        <div>
+            <input type="number" placeholder="PinCode" name="pincode" required>
+            <input type="text" placeholder="Locality" name="locality" required>
+        </div>
+
+        <textarea name="address" placeholder="Address(Area and Street)" id="" cols="40" rows="10" style="resize: none;
+        " required></textarea>
+
+        <div>
+            <input  type="text" placeholder="City/District/Town" name="city" required>
+            <div class="state-sel" >
+                <select name="state" id="state" required >
+                    <option value="Kerala" selected>Kerala</option>
+                    <option value="Tamil Nadu" >Tamil Nadu</option>
+                    <option value="Karnataka" >Karnataka</option>
+                </select>
+            </div>
+            </div>
+
+        <div>
+            <input type="text" placeholder="Landmark" name="landmark" >
+            <input type="text" placeholder="Alternative Phone" name="alt_phone">
+        </div>
+
+        <input class="normal" type="submit" value="Submit" >
+
+    </form>
+    {%endif%}
+
 {% endblock account-info %}

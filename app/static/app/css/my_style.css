@@ -29,6 +29,52 @@ html{
   padding: 0;
   overflow-x: hidden;
 }
+ /* The toast container */
+ #toastContainer {
+  position: fixed;
+  bottom: 20px;
+  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+}
+
+/* The toast message */
+.toast {
+  display: flex;
+  width: 100%;
+  padding: 12px 20px;
+  background-color: #065f7a;
+  color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  font-family: "Open Sans", sans-serif;
+
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Cart Item number Notifi */
+.notifi{
+  position: relative;
+  z-index: 9999;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  display: flex;
+  bottom: 6px;
+  right: 5px;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 12px;
+  
+  background-color: #1ac1b6;
+}
+/* Show the toast */
+.toast.show {
+  opacity: 1;
+}
 .alert-success {
   width: 100%;
   padding: 7px 5px;
@@ -704,6 +750,21 @@ select {
   padding: 2px;
 }
 
+/* category Page */
+
+
+/* Empty Cart Page */
+#empty-cart{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 50vh;
+
+  justify-content: center;
+}
+#empty-cart img{
+  width: 200px;
+}
 /*  Start Media Query */
 
 @media (max-width: 1100px) {
@@ -809,11 +870,17 @@ select {
   #mobile {
     display: flex;
     align-items: center;
+    width: 66px;
+    justify-content: space-between;
+
   }
   #mobile i {
+    padding: 0;
+    height: 100%;
     color: #1a1a1a;
     font-size: 24px;
-    padding-left: 20px;
+    margin-top: 1px;
+    /* padding-left: 20px; */
   }
   #close {
     display: block;
@@ -827,7 +894,8 @@ select {
     display: none;
   }
   #bar {
-    margin-left: 10px;
+    margin-top: 0px;
+
   }
 
   #hero {
@@ -898,6 +966,9 @@ select {
     margin-top: 20px;
     /* box-shadow: 2px 9px 21px -2px #6d6c6c; */
   }
+
+  /* category page */
+
 }
 @media (max-width: 477px) {
   #button-b {
@@ -942,7 +1013,7 @@ select {
   }
 
   #header {
-    padding: 10px 30px;
+    padding: 10px 10px;
   }
   h1 {
     font-size: 38px;

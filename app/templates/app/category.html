@@ -1,42 +1,31 @@
 {% extends 'app/base.html' %}
 
 {% load static%}
+{% block link%}
+<link rel="stylesheet" href="{% static 'app/css/category.css' %}" />
 
+    {% endblock link%}
 {% block title %}Category {% endblock title %}
-
-{%block main-content%}
-<section id="product1" class="section-p1">
+{% block main-content %}
     
-    <h2>Top Footwears</h2>
-    <p> Special Footwears for all season</p>
+  <nav class="cat-box">
+    <ul id="sub-cat-nav">
+      <li><a href="{% url 'category_digital'%}">Digital</a></li>
+      <li><a href="">Fashion</a></li>
+      <li><a href="">New Arrivals</a></li>
+      <li><a href="">Top Wears</a></li>
+      <li><a href="">Bottom Wears</a></li>
+    </ul>
+  </nav>
+
+  {% block category-sec%} {% endblock category-sec%}
 
     
-    <div class="pro-container">
-
-        
-      <div class="pro">
-        <img src="{% static 'app/img/products/p3.jpg' %}" alt="" />
-        <div class="des">
-          <span>adidas</span>
-
-          <h5>Cartoon Astronat T-shirt</h5>
-
-          <div class="star">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          </div>
-          <h4>$78</h4>
-        </div>
-
-        <a href="#"> <i class="fa-solid fa-cart-shopping cart"></i></a>
-      </div>
-
-      
-    </div>
-  </section>
-
-{%endblock main-content%}
-
+  
+    <section id="pagination" class="section-p1">
+        <a href="#">1</a>
+        <a href="#">2</a>
+        <a href="#"><i class="fa-solid fa-long-arrow-alt-right"></i></a>
+    </section>
+    
+    {% endblock main-content %}

@@ -16,11 +16,15 @@
             <input type="email" placeholder="Email" name="username">
             <input type="password" placeholder="Password" name="password">
 
+            {% if message%}
+            <p style="color:red;">{{message}}</p>
+            {%endif%}
             <a href="#">forgot password?</a>
             <button class="normal">Login</button>
 
             <div class="lfooter">
-                <a href="#">New to RedPandas? SignUp</a>
+               
+                <a href="{%url 'signup'%}">New to RedPandas? SignUp</a>
             </div>
             
         </form>

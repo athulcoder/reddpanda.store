@@ -4,7 +4,7 @@
 {% load static %}
 {% block title %}Shop {% endblock title %}
 {% block main-content %}
-    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.5.0/css/bootstrap.min.css">
 <section class="section-p1" id="single-pro">
  <div class="equal-size" id="pro-img">
     <div class="side-box">
@@ -41,11 +41,22 @@
   </div>
   <div class="detail">
 
-    <div id="button-b"> 
-      <button class="p-btn" style="  background-color: #388b86; " onclick="window.location.href=`{%url 'cart'%}`"> Add TO CART</button>
-      <button class="p-btn" style="  background-color: #055752;"> Buy Now</button>
-    
+    {% if request.user.is_authenticated %}
+    <div id="button-b">
+       {% if cart %}
+       <button class="p-btn" style="  background-color: #388b86; " data-product-uid="{{product.id}}" onclick="window.location.href=`{%url 'show_my_cart'%}`"> GO TO CART</button>
+        {%else %}
+        <button  id="add-to-cart-btn"class="p-btn" style="  background-color: #388b86; " data-product-uid="{{product.id}}"> ADD TO CART</button>
+        {%endif%}
+        <button class="p-btn" style="  background-color: #055752;"> BUY NOW</button>
     </div>
+    {%else%}
+    <div id="button-b">
+      
+       <button onclick="window.location.href=`{%url 'signup'%}`" class="p-btn" style="  background-color: #388b86; " data-product-uid="{{product.id}}"> SIGN UP</button>
+       <button onclick="window.location.href=`{%url 'login'%}`" class="p-btn" style="  background-color: #055752;"> SIGN IN</button>
+   </div>
+    {% endif%}
     <h4>Product Details</h4>
 <p>{{product.description}}</p>
 
@@ -97,5 +108,6 @@
    
 
     {% endblock main-content %}
+
 
 

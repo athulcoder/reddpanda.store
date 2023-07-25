@@ -1,0 +1,44 @@
+{% extends 'app/category.html' %}
+{% load static%}
+
+{% block category-sec%} 
+
+{% if  bottomwear.0.title %}
+
+    <section id="product1" class="section-p1">
+      <h2> Flashsale for Bottom Wears</h2>
+      <p>Summer Collection New Modern Design</p>
+
+      <div class="pro-container">
+
+
+        {% for item in bottomwear%}
+
+        <div class="pro" onclick=window.location.href="{% url 'product-detail' item.id%}">
+          <img src="{{item.product_img.url}}" alt="" />
+          <div class="des">
+            <span>{{item.brand}}</span>
+
+            <h5>{{item.title}}</h5>
+
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4> ₹ {{item.discounted_price}}  </h4>
+          </div>
+
+          <a href="#"> <i class="fa-solid fa-cart-shopping cart"></i></a>
+        </div>
+
+        {% endfor %}
+
+        
+      </div>
+    </section>
+    {%endif%}
+
+{% endblock category-sec%}

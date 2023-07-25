@@ -23,13 +23,13 @@
 
 #kcontainer .m-box .cart-sec{
     scrollbar-width: none;
-    flex: 60%;
     border: 1px solid #dad8d8;
     padding: 20px;
     margin-right: 30px;
     overflow-y: scroll;
     height: 600px;
     border-radius: 6px;
+    flex: 4;
     /* box-shadow: 1px 4px 18px 3px #d2d0d0; */
 }
 
@@ -38,8 +38,9 @@
     border-bottom: 1px solid #222;
 }
 #kcontainer .m-box .cart-sec .pro-box img{
-    width: 600px;
+    width: 215px;
     margin: 20px;
+    height: 215px;
     border: 1px solid rgb(222, 219, 219);
 
 }
@@ -48,6 +49,7 @@
 #kcontainer .m-box .cart-sec .pro-box .details{
     display: flex;
     flex-direction: column;
+    flex: 6;
 
 }
 #kcontainer .m-box .cart-sec .pro-box .details h4{
@@ -129,7 +131,11 @@
         font-size: 15px;
     }
     #kcontainer .m-box .amount-sec {
-        flex: 40%;
+        flex:3;
+    }
+
+    #kcontainer .m-box .cart-sec{
+        flex: 7;
     }
 }
 
@@ -160,6 +166,7 @@
     #kcontainer .m-box .cart-sec .pro-box img{
         width: 100px;
         margin: 10px 0;
+        height: 100px;
     }
     #kcontainer .m-box .cart-sec .pro-box .details p{
         font-size: 14px;
